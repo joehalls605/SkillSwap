@@ -15,7 +15,7 @@
         <label for="currentSkills">Current Skills:</label>
         <input type="text" id="currentSkills" name="currentSkills" required>
         <label for="desiredSkills">Desired Skills:</label>
-        <input type="text" id="desiredSkills" name="desiredSkills" required>
+        <input type="text" id="desiredSkills" name="desiredSkills" >
         <label for="learningMethods">Learning Methods:</label>
         <select>
             <option value="online">Online</option>
@@ -24,7 +24,8 @@
         </select>
         <label for="availability">Availability:</label>
         <textarea id="availability" name="availability" rows="4"></textarea>
-        <button id="submit" type="submit">Submit</button>
+        <div id="notice"></div>
+        <button id="submit" type="submit" onclick="submitForm()">Submit</button>
     </form>
 
 </body>
