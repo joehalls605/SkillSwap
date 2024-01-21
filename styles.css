@@ -52,3 +52,22 @@ button:hover {
     justify-content: center;
     flex-direction: column;
 }
+
+#developers{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.developer {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-width: 1px;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 500px; /* Set the height for the developer container */
+}
+
+.developer img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain the aspect ratio */
+}
