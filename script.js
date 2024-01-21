@@ -1,4 +1,6 @@
 
+import developers from "./developers";
+
 
 function submitForm(){
     const currentSkills = document.getElementById("currentSkills");
