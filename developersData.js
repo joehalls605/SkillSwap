@@ -1,4 +1,4 @@
-const developers = [
+const developersData = [
     {
       name: "Alice Johnson",
       programmingLanguage: "JavaScript",
@@ -42,5 +42,3 @@ const developers = [
       pricePerHour: 55
     },
   ];
-
-  export default developers;
