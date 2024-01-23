@@ -9,13 +9,47 @@
 <body>
     <div id="header">
         <h2>Software Mentor</h2>
-        <p>Your Gateway to Developer Mentorship.</p>
         <nav>
             <ul>
                 <li>About</li>
                 <li>Contact</li>
             </ul>
         </nav>
+        <p>Your Gateway to Developer Mentorship.</p>
+    </div>
+    <div id="main">
+       <p>What type of mentorship are you looking for?</p>
+       <form id="filterForm">
+        <label for="programmingLanguage">Programming Language:</label>
+        <select id="programmingLanguage">
+            <option value="">Any</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            <option value="Ruby">Ruby</option>
+            <option value="PHP">PHP</option>
+            <option value="Swift">Swift</option>
+        </select>
+        
+        <label for="interviewCoaching">Interview Coaching:</label>
+        <input type="checkbox" id="interviewCoaching">
+
+        <label for="resumeHelp">Resume Help:</label>
+        <input type="checkbox" id="resumeHelp">
+
+        <label for="developmentStrategy">Development Strategy:</label>
+        <input type="checkbox" id="developmentStrategy">
+
+        <label for="availability">Availabile Now:</label>
+        <select id="availability">
+            <option value="">Any</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button type="button" onclick="filterDevelopers()">Apply Filters</button>
+       </form>
+
     </div>
     <div id="developers"></div>
 
