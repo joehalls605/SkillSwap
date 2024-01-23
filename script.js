@@ -2,7 +2,7 @@ const developersData = [
   {
     name: "Alice James",
     programmingLanguage: "Javascript",
-    mentorshipType: ["interviewCoaching", "ProgrammingDevelopment"],
+    mentorshipType: "Programming Development",
     available: "Yes",
     pricePerHour: 50,
     image: "./images/AliceJames.jpg",
@@ -11,7 +11,7 @@ const developersData = [
   {
     name: "James Roedan",
     programmingLanguage: "Python",
-    mentorshipType: ["ProgrammingDevelopment"],
+    mentorshipType: "Programming Development",
     available: "No",
     pricePerHour: 60,
     image: "./images/JamesRoedan.jpg",
@@ -20,7 +20,7 @@ const developersData = [
   {
     name: "Charlie Wano",
     programmingLanguage: "Java",
-    mentorshipType: ["ProgrammingDevelopment", "interviewCoaching"],
+    mentorshipType: "Programming Development",
     available: "Yes",
     pricePerHour: 55,
     image: "./images/CharlieWano.jpg",
@@ -29,7 +29,7 @@ const developersData = [
   {
     name: "David Roberts",
     programmingLanguage: "Ruby",
-    mentorshipType: ["ProgrammingDevelopment", "interviewCoaching"],
+    mentorshipType: "Programming Development",
     available: "Yes",
     pricePerHour: 45,
     image: "./images/DavidRoberts.jpg",
@@ -38,7 +38,7 @@ const developersData = [
   {
     name: "Xavi Gonzalez",
     programmingLanguage: "C#",
-    mentorshipType: ["ProgrammingDevelopment", "resumeAdvice"],
+    mentorshipType: "Resume Advice",
     available: "No",
     pricePerHour: 65,
     image: "./images/XaviGonzalez.jpg",
@@ -47,7 +47,7 @@ const developersData = [
   {
     name: "Frank Jackson",
     programmingLanguage: "PHP",
-    mentorshipType: ["ProgrammingDevelopment", "resumeAdvice"],
+    mentorshipType: "Interview Coaching",
     available: "Yes",
     pricePerHour: 40,
     image: "./images/FrankJackson.jpg",
@@ -56,7 +56,7 @@ const developersData = [
   {
     name: "Henrich Burchards",
     programmingLanguage: "Swift",
-    mentorshipType: ["ProgrammingDevelopment"],
+    mentorshipType: "Programming Development",
     available: "Yes",
     pricePerHour: 55,
     image: "./images/HenrichBurchards.jpg",
@@ -92,7 +92,7 @@ const developersData = [
     function filterDevelopers(){
 
       const mentorshipType = document.getElementById("mentorshipType");
-      const programmingLanguageFilter = document.getElementById("programmingLanguage").value;
+
       const checkboxesContainer = document.getElementById("programmingLanguageCheckboxesContainer");
 
       // Check if "Programming Development" is selected to display the checkboxes
@@ -100,10 +100,12 @@ const developersData = [
 
 
       const filteredDevelopers = developersData.filter(developer => {
-        return(
-          (mentorshipType === '' || developer.mentorshipType === mentorshipType)
-        )
-      })
+        return (
+            (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value))
+        );
+    });
+
+    console.log(mentorshipType);
 
  // RENDERING THE FILTERED DEVELOPERS
    
