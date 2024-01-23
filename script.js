@@ -2,9 +2,7 @@ const developersData = [
   {
     name: "Alice James",
     programmingLanguage: "Javascript",
-    interviewCoaching: true,
-    resumeHelp: true,
-    developmentStrategy: true, // Add or update this property
+    mentorshipType: ["interviewCoaching", "ProgrammingDevelopment"],
     available: "Yes",
     pricePerHour: 50,
     image: "./images/AliceJames.jpg",
@@ -13,9 +11,7 @@ const developersData = [
   {
     name: "James Roedan",
     programmingLanguage: "Python",
-    interviewCoaching: true,
-    resumeHelp: true,
-    developmentStrategy: true, // Add or update this property
+    mentorshipType: ["ProgrammingDevelopment"],
     available: "No",
     pricePerHour: 60,
     image: "./images/JamesRoedan.jpg",
@@ -24,6 +20,7 @@ const developersData = [
   {
     name: "Charlie Wano",
     programmingLanguage: "Java",
+    mentorshipType: ["ProgrammingDevelopment", "interviewCoaching"],
     available: "Yes",
     pricePerHour: 55,
     image: "./images/CharlieWano.jpg",
@@ -32,8 +29,7 @@ const developersData = [
   {
     name: "David Roberts",
     programmingLanguage: "Ruby",
-    interviewCoaching: true,
-    developmentStrategy: true, // Add or update this property
+    mentorshipType: ["ProgrammingDevelopment", "interviewCoaching"],
     available: "Yes",
     pricePerHour: 45,
     image: "./images/DavidRoberts.jpg",
@@ -42,9 +38,8 @@ const developersData = [
   {
     name: "Xavi Gonzalez",
     programmingLanguage: "C#",
+    mentorshipType: ["ProgrammingDevelopment", "resumeAdvice"],
     available: "No",
-    resumeHelp: true,
-    developmentStrategy: true, // Add or update this property
     pricePerHour: 65,
     image: "./images/XaviGonzalez.jpg",
     bio: "Hello, I'm Xavi Gonzalez, a dedicated C# developer specializing in Windows application development and .NET technologies..."
@@ -52,6 +47,7 @@ const developersData = [
   {
     name: "Frank Jackson",
     programmingLanguage: "PHP",
+    mentorshipType: ["ProgrammingDevelopment", "resumeAdvice"],
     available: "Yes",
     pricePerHour: 40,
     image: "./images/FrankJackson.jpg",
@@ -60,12 +56,14 @@ const developersData = [
   {
     name: "Henrich Burchards",
     programmingLanguage: "Swift",
+    mentorshipType: ["ProgrammingDevelopment"],
     available: "Yes",
     pricePerHour: 55,
     image: "./images/HenrichBurchards.jpg",
     bio: "Hey there! I'm Henrich Burchards, a Swift developer passionate about crafting delightful iOS applications..."
   },
 ];
+
 
 
   // DEVELOPERS LIST
@@ -83,6 +81,7 @@ const developersData = [
         <p>Skill: ${developer.programmingLanguage}</p>
         <p>Available: ${developer.available}</p>
         <p>From £${developer.pricePerHour}</p>
+        <p>${developer.interviewCoaching}</p>
         <img src="${developer.image}">
         `
         developersWidget.append(developerDiv);
@@ -92,26 +91,19 @@ const developersData = [
 
     function filterDevelopers(){
 
+      const mentorshipType = document.getElementById("mentorshipType");
       const programmingLanguageFilter = document.getElementById("programmingLanguage").value;
-      const interviewCoachingFilter = document.getElementById("interviewCoaching").checked;
-      const resumeHelpFilter = document.getElementById("resumeHelp").checked;
-      const developmentStrategyFilter = document.getElementById("developmentStrategy").checked;
-      const availabilityFilter = document.getElementById("availability").value;
+      const checkboxesContainer = document.getElementById("programmingLanguageCheckboxesContainer");
+
+      // Check if "Programming Development" is selected to display the checkboxes
+      checkboxesContainer.style.display = (mentorshipType.value == "Programming_development") ? "block" : "none";
+
 
       const filteredDevelopers = developersData.filter(developer => {
-        return (
-            // Check if programmingLanguageFilter is empty or matches developer's programming language
-            (programmingLanguageFilter === '' || developer.programmingLanguage === programmingLanguageFilter) &&
-            // Check if interviewCoachingFilter is not selected or developer offers interview coaching
-            (!interviewCoachingFilter || developer.interviewCoaching) &&
-            // Check if resumeHelpFilter is not selected or developer offers resume help
-            (!resumeHelpFilter || developer.resumeHelp) &&
-            // Check if developmentStrategyFilter is not selected or developer offers development strategy support
-            (!developmentStrategyFilter || developer.developmentStrategy) &&
-            // Check if availabilityFilter is empty or matches developer's availability
-            (availabilityFilter === '' || developer.available === availabilityFilter)
-        );
-    });
+        return(
+          (mentorshipType === '' || developer.mentorshipType === mentorshipType)
+        )
+      })
 
  // RENDERING THE FILTERED DEVELOPERS
    
@@ -145,6 +137,46 @@ const developersData = [
 
 
 
+  // SHOW CONTENT
+
+  function showContent(page){
+    const mainContent = document.getElementById("main");
+
+    // clear existing content
+    mainContent.innerHTML = "";
+
+    switch (page) {
+      case "about":
+          mainContent.innerHTML = "<h1>About us</h1>";
+          break; // Add break to exit the switch statement after setting content
+      case "contact":
+          mainContent.innerHTML = "<h1>Contact</h1>";
+          break; // Add break to exit the switch statement after setting content
+      default:
+          break;
+  }
+  
+
+    // Update the browser history to reflect the current page
+    /*
+window.history: The window.history object provides an interface to interact with the browser's session history.
+pushState: The pushState method is used to add a new state to the browser's history stack. It allows you to change the URL displayed in the browser without triggering a full page reload.
+{ page: page }: This represents the state object that is associated with the new history entry. In this case, it includes a property named "page" with a value equal to the page parameter passed to the function.
+null: The second argument represents the title of the new state. In this case, it's set to null because the title is not used in this scenario.
+#${page}: The third argument is the URL that will be displayed in the browser. It includes a hash symbol (#) followed by the value of the page parameter. This is often used in single-page applications to create bookmarkable URLs or to maintain navigation state.
+    */
+    window.history.pushState({ page: page }, null, `#${page}`);
+  }
+
+  window.addEventListener('popstate', function (event){
+    if(event.state && event.state.page){
+      showContent(event.state.page);
+    }
+  })
+
+
+
+
     // CONTACT FORM SUBMIT
 
     function submitForm() {
@@ -159,3 +191,11 @@ const developersData = [
             notice.append(error);
         }
     }
+
+    // FOOTER
+
+    const footerElement = document.getElementById("footer");
+    const date = new Date().getFullYear();
+    footerElement.append(date);
+    footerElement.append(" Software Mentor. All rights reserved")
+    

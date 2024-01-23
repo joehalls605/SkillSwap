@@ -1,12 +1,45 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-   
+}
+
+#header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+h2 {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline;
+    margin-left: 10px;
+}
+
+#main {
+    max-width: 600px;
+    margin: auto;
+    text-align: right;
 }
 
 form {
-    max-width: 600px;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,6 +58,11 @@ input, select, textarea {
     box-sizing: border-box;
 }
 
+#main-slogan{
+    text-align: left;
+}
+
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -38,56 +76,37 @@ button:hover {
     background-color: #45a049;
 }
 
-#submit{
-    align-items: center;
-    justify-content: center;
-}
-
-#availability{
-    width: 500px;
-}
-
-#header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between; /* Add this line for spacing between h2 and nav */
-    flex-direction: column;
-}
-nav {
-    margin-top: 10px; /* Add some space between the heading and the navigation */
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: right; /* Align the text (list items) to the right */
-}
-
-li {
-    display: inline; /* Display list items horizontally */
-    margin-left: 10px; /* Add some space between list items */
-}
-
-
-
-
-#developers{
+#developers {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .developer {
     width: 400px;
     border: 1px solid #ccc;
     border-width: 1px;
     padding: 10px;
     margin-bottom: 20px;
-    height: 500px; /* Set the height for the developer container */
+    height: 500px;
 }
 
 .developer img {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain the aspect ratio */
+    width: 100%;
+    height: auto;
 }
 
+#programmingLanguageCheckboxesContainer {
+    display: none;
+  }
+
+#programmingLanguageCheckboxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#programmingLanguageCheckboxes div {
+    display: flex;
+    align-items: center;
+}

@@ -9,17 +9,25 @@
 <body>
     <div id="header">
         <h2>Software Mentor</h2>
-        <nav>
-            <ul>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-        <p>Your Gateway to Developer Mentorship.</p>
+        <ul>
+            <li><a href="#" onclick="showContent('about')">About</a></li>
+            <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+        </ul>
     </div>
+
     <div id="main">
-       <p>What type of mentorship are you looking for?</p>
+        <div id="main-slogan">
+            <p>Your Gateway to Developer Mentorship.</p>
+        </div>           
        <form id="filterForm">
+        <label for="programmingLanguage">What type of mentorship are you looking for?</label>
+        <select id="mentorshipType">
+            <option value="Interview_coaching">Interview Coaching</option>
+            <option value="Resume_advice">Resume Advice</option>
+            <option value="Programming_development">Programming Development</option>
+        </select>
+        
+       <!-- <form id="filterForm">
         <label for="programmingLanguage">Programming Language:</label>
         <select id="programmingLanguage">
             <option value="">Any</option>
@@ -29,30 +37,46 @@
             <option value="Ruby">Ruby</option>
             <option value="PHP">PHP</option>
             <option value="Swift">Swift</option>
-        </select>
+        </select> -->
         
-        <label for="interviewCoaching">Interview Coaching:</label>
-        <input type="checkbox" id="interviewCoaching">
-
-        <label for="resumeHelp">Resume Help:</label>
-        <input type="checkbox" id="resumeHelp">
-
-        <label for="developmentStrategy">Development Strategy:</label>
-        <input type="checkbox" id="developmentStrategy">
-
-        <label for="availability">Availabile Now:</label>
-        <select id="availability">
-            <option value="">Any</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select>
-
+        <p>Mentor programming languages:</p>
+        <div id="programmingLanguageCheckboxesContainer">
+            <div>
+                <label for="Javascript">Javascript</label>
+                <input type="checkbox" id="Javascript">
+            </div>
+           <div>
+            <label for="Python">Python</label>
+            <input type="checkbox" id="Python">
+           </div>
+         <div>
+            <label for="C#">C#</label>
+            <input type="checkbox" id="C#">
+         </div>
+         <div>
+            <label for="Ruby">Ruby</label>
+            <input type="checkbox" id="Ruby">
+         </div>
+         <div>
+            <label for="PHP">PHP</label>
+            <input type="checkbox" id="PHP">
+         </div>
+         <div>
+            <label for="Swift">Swift</label>
+            <input type="checkbox" id="Swift">
+         </div>
+  
+           
+        </div>
         <button type="button" onclick="filterDevelopers()">Apply Filters</button>
        </form>
 
     </div>
     <div id="developers"></div>
 
+    <div id="footer">
+      <p></p>
+    </div>
     <!-- Include the developersData.js file directly -->
     <script src="script.js"></script>
 </body>
