@@ -96,11 +96,17 @@ const developersData = [
         const programmingLanguageCheckboxesContainer = document.getElementById("programmingLanguageCheckboxesContainer");
         programmingLanguageCheckboxesContainer.classList.add("block");
       }
-     
+
+      const checkboxes = document.querySelectorAll("#programmingLanguageCheckboxesContainer input[type='checkbox']");
+      const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+      const selectedLanguages = checkedCheckboxes.map(checkbox => checkbox.id);
+
 
       const filteredDevelopers = developersData.filter(developer => {
         return (
-            (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value))
+          (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value))
+          (selectedLanguages.length === 0 || selectedLanguages.includes(developer.programmingLanguage))
         );
     });
 
