@@ -100,13 +100,8 @@ button:hover {
     display: none;
   }
 
-#programmingLanguageCheckboxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-#programmingLanguageCheckboxes div {
+  #programmingLanguageCheckboxesContainer.block {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

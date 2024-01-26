@@ -92,6 +92,12 @@ const developersData = [
 
       const mentorshipType = document.getElementById("mentorshipType");
 
+      if(mentorshipType.value === "Programming_development"){
+        const programmingLanguageCheckboxesContainer = document.getElementById("programmingLanguageCheckboxesContainer");
+        programmingLanguageCheckboxesContainer.classList.add("block");
+      }
+     
+
       const filteredDevelopers = developersData.filter(developer => {
         return (
             (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value))
