@@ -2,7 +2,7 @@ const developersData = [
   {
     name: "Alice James",
     programmingLanguage: "Javascript",
-    mentorshipType: "Programming Development",
+    mentorshipType: "Programming_development",
     available: "Yes",
     pricePerHour: 50,
     image: "./images/AliceJames.jpg",
@@ -11,7 +11,7 @@ const developersData = [
   {
     name: "James Roedan",
     programmingLanguage: "Python",
-    mentorshipType: "Programming Development",
+    mentorshipType: "Programming_development",
     available: "No",
     pricePerHour: 60,
     image: "./images/JamesRoedan.jpg",
@@ -20,7 +20,7 @@ const developersData = [
   {
     name: "Charlie Wano",
     programmingLanguage: "Java",
-    mentorshipType: "Programming Development",
+    mentorshipType: "Programming_development",
     available: "Yes",
     pricePerHour: 55,
     image: "./images/CharlieWano.jpg",
@@ -29,7 +29,7 @@ const developersData = [
   {
     name: "David Roberts",
     programmingLanguage: "Ruby",
-    mentorshipType: "Programming Development",
+    mentorshipType: "Programming_development",
     available: "Yes",
     pricePerHour: 45,
     image: "./images/DavidRoberts.jpg",
@@ -38,7 +38,7 @@ const developersData = [
   {
     name: "Xavi Gonzalez",
     programmingLanguage: "C#",
-    mentorshipType: "Resume Advice",
+    mentorshipType: "Resume_advice",
     available: "No",
     pricePerHour: 65,
     image: "./images/XaviGonzalez.jpg",
@@ -47,7 +47,7 @@ const developersData = [
   {
     name: "Frank Jackson",
     programmingLanguage: "PHP",
-    mentorshipType: "Interview Coaching",
+    mentorshipType: "Interview_coaching",
     available: "Yes",
     pricePerHour: 40,
     image: "./images/FrankJackson.jpg",
@@ -56,7 +56,7 @@ const developersData = [
   {
     name: "Henrich Burchards",
     programmingLanguage: "Swift",
-    mentorshipType: "Programming Development",
+    mentorshipType: "Programming_development",
     available: "Yes",
     pricePerHour: 55,
     image: "./images/HenrichBurchards.jpg",
@@ -67,7 +67,6 @@ const developersData = [
 
 
   // DEVELOPERS LIST
-
 
   const developersWidget = document.getElementById("developers");
 
@@ -81,7 +80,7 @@ const developersData = [
         <p>Skill: ${developer.programmingLanguage}</p>
         <p>Available: ${developer.available}</p>
         <p>From £${developer.pricePerHour}</p>
-        <p>${developer.interviewCoaching}</p>
+        <p>${developer.mentorshipType}</p>
         <img src="${developer.image}">
         `
         developersWidget.append(developerDiv);
@@ -92,12 +91,6 @@ const developersData = [
     function filterDevelopers(){
 
       const mentorshipType = document.getElementById("mentorshipType");
-
-      const checkboxesContainer = document.getElementById("programmingLanguageCheckboxesContainer");
-
-      // Check if "Programming Development" is selected to display the checkboxes
-      checkboxesContainer.style.display = (mentorshipType.value == "Programming_development") ? "block" : "none";
-
 
       const filteredDevelopers = developersData.filter(developer => {
         return (
