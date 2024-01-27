@@ -154,14 +154,31 @@ const developersData = [
 
     switch (page) {
       case "about":
-          mainContent.innerHTML = "<h1>About us</h1>";
-          break; // Add break to exit the switch statement after setting content
+          mainContent.innerHTML = `
+              <h1>About us</h1>
+              <p>Welcome to Software Mentor! We provide mentorship services for developers.</p>
+          `;
+          break;
       case "contact":
-          mainContent.innerHTML = "<h1>Contact</h1>";
-          break; // Add break to exit the switch statement after setting content
+          mainContent.innerHTML = `
+          <h1>Contact Us</h1>
+          <form action="#" method="post">
+              <label for="name">Name:</label><br>
+              <input type="text" id="name" name="name" required><br><br>
+              
+              <label for="email">Email:</label><br>
+              <input type="email" id="email" name="email" required><br><br>
+              
+              <label for="message">Message:</label><br>
+              <textarea id="message" name="message" rows="4" required></textarea><br><br>
+              
+              <button type="submit">Submit</button>
+          </form>`;
+          break;
       default:
           break;
   }
+  
   
 
     // Update the browser history to reflect the current page
