@@ -101,12 +101,12 @@ const developersData = [
       const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
 
       const selectedLanguages = checkedCheckboxes.map(checkbox => checkbox.id);
-
+    
 
       const filteredDevelopers = developersData.filter(developer => {
         return (
-          (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value))
-          (selectedLanguages.length === 0 || selectedLanguages.includes(developer.programmingLanguage))
+            (mentorshipType.value === '' || developer.mentorshipType.includes(mentorshipType.value)) &&
+            (selectedLanguages.length === 0 || selectedLanguages.includes(developer.programmingLanguage))
         );
     });
 
